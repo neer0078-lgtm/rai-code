@@ -1,0 +1,20 @@
+[package]
+name = "rai-browser"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "BrowserPane backend: chromiumoxide (pure-Rust CDP) + ratatui-image. Agent browser tools: navigate/snapshot(a11y)/click/type/screenshot/console/network/assert/playwright-test. a11y-tree default (~300 tokens), screenshot on-demand."
+
+[dependencies]
+chromiumoxide = { workspace = true }
+ratatui-image = { workspace = true }
+image = { workspace = true }
+tokio = { workspace = true }
+futures = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread"] }

@@ -1,0 +1,14 @@
+[package]
+name = "rai-mcp"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "MCP client + server via rmcp (official Rust SDK). Consumes Graphiti/Hindsight/Semgrep/Playwright MCP; exposes RAI Code's own tools. All traffic routed through rai-security."
+
+[dependencies]
+rmcp = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }

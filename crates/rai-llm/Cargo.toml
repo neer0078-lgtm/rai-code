@@ -1,0 +1,28 @@
+[package]
+name = "rai-llm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Multi-provider LLM client (genai): Anthropic, OpenAI, Google, xAI, DeepSeek, OpenRouter, local. Custom endpoints, LiteLLM proxy, prompt caching (CacheControl), token-efficient tool use."
+
+[features]
+default = []
+# Exposes a MockProvider for tests (used by rai-core's loop tests).
+mock = []
+
+[dependencies]
+genai = { workspace = true }
+reqwest = { workspace = true }
+eventsource-stream = { workspace = true }
+tokio = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread"] }
+futures = { workspace = true }

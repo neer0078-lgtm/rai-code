@@ -1,0 +1,24 @@
+[package]
+name = "rai-sandbox"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Sandbox backends: E2B (Firecracker microVM, runs app + headless Chromium), Daytona (stateful/GPU), local subprocess + approval. Pluggable via the Sandbox trait."
+
+[dependencies]
+tokio = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+async-trait = { workspace = true }
+
+[features]
+default = []
+e2b = []
+daytona = []
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread", "process", "time"] }
