@@ -1,0 +1,37 @@
+[package]
+name = "rai-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "The rai binary: parses CLI args, initializes config, starts local or full mode, launches the TUI, runs onboarding + Hindsight profile."
+
+[lib]
+name = "rai_cli"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rai"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+reqwest = { workspace = true }
+serde_json = { workspace = true }
+futures = { workspace = true }
+rai-core = { path = "../rai-core" }
+rai-tui = { path = "../rai-tui" }
+rai-llm = { path = "../rai-llm" }
+rai-python = { path = "../rai-python" }
+rai-codegen = { path = "../rai-codegen" }
+rai-sandbox = { path = "../rai-sandbox" }
+rai-browser = { path = "../rai-browser" }
+rai-security = { path = "../rai-security" }
+rai-mcp = { path = "../rai-mcp" }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread"] }
+rai-llm = { path = "../rai-llm", features = ["mock"] }

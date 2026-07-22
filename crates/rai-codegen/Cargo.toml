@@ -1,0 +1,20 @@
+[package]
+name = "rai-codegen"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Code intelligence: tree-sitter DCG (incremental parsing), tree-house syntax highlighting (Helix-grade), async-lsp client (diagnostics/go-to-def/completions/call hierarchy), SCIP consumer."
+
+[dependencies]
+tree-sitter = { workspace = true }
+tree-sitter-rust = "0.24"
+tree-sitter-language = "0.1"
+async-lsp = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt"] }

@@ -1,0 +1,18 @@
+[package]
+name = "rai-daemon"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "The /bg per-user supervisor binary: detached background agent sessions, roster-backed reconnect, idle eviction + pinning, worktree isolation, binary-on-disk watch for rolling upgrades."
+
+[[bin]]
+name = "rai-daemon"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+rai-core = { path = "../rai-core" }
