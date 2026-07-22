@@ -1,0 +1,20 @@
+[package]
+name = "rai-tui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Ratatui TUI for RAI Code: chat, diff, plan, file-tree, command palette, and the BrowserPane."
+
+[dependencies]
+ratatui = { workspace = true }
+crossterm = { workspace = true }
+ratatui-image = { workspace = true }
+tokio = { workspace = true }
+futures = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+rai-core = { path = "../rai-core" }
+rai-browser = { path = "../rai-browser" }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt"] }
