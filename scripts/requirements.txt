@@ -1,0 +1,18 @@
+# RAI Code Python sidecar dependencies.
+# In --local mode (self-contained kit), only the first two are needed;
+# Graphiti + Hindsight are optional (the sidecar degrades gracefully without them).
+#
+# Required for the sidecar itself:
+# (Python 3.10+ stdlib — no pip deps for the JSON-RPC server itself)
+#
+# For Graphiti (temporal code KG) — optional, enables graphiti_* methods:
+graphiti-core>=0.5
+# Graphiti backends (pick one):
+# kuzu>=0.11        # embedded, zero-dep (for --local mode)
+# neo4j>=5.26       # for --managed mode
+#
+# For Hindsight (user model) — optional, enables hindsight_* methods:
+hindsight-all>=0.1
+#
+# For local embeddings (Graphiti extraction can use a local model via Ollama):
+# No pip dep needed — Graphiti + Ollama handle this via env vars.

@@ -1,0 +1,37 @@
+[package]
+name = "rai-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "RAI Code core: agent loop, tools, permissions, hooks, sub-agents, compaction. Clean-room reimplementation of Claude Code's architectural patterns (non-copyrightable) in Rust."
+
+[dependencies]
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+futures = { workspace = true }
+async-stream = { workspace = true }
+async-trait = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+git2 = { workspace = true }
+once_cell = { workspace = true }
+parking_lot = { workspace = true }
+dashmap = { workspace = true }
+rai-llm = { path = "../rai-llm" }
+rai-security = { path = "../rai-security" }
+rustyscript = { workspace = true, optional = true }
+
+[features]
+default = []
+dynamic-workflows = ["dep:rustyscript"]
+# Use rai-llm's MockProvider for Default::default() (needed for the T17 test
+# when running with --features mock-loop).
+mock-loop = ["rai-llm/mock"]
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt", "rt-multi-thread"] }
+futures = { workspace = true }
+rai-llm = { path = "../rai-llm", features = ["mock"] }
